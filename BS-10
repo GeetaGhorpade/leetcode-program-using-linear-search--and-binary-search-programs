@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int lowerBound(const vector<int>& arr, int target) {
+    int low = 0, high = arr.size();
+    while(low < high) {
+        int mid = low + (high - low) / 2;
+        if(arr[mid] < target)
+            low = mid + 1;
+        else
+            high = mid;
+    }
+    return low;
+}
+
+int upperBound(const vector<int>& arr, int target) {
+    int low = 0, high = arr.size();
+    while(low < high) {
+        int mid = low + (high - low) / 2;
+        if(arr[mid] <= target)
+            low = mid + 1;
+        else
+            high = mid;
+    }
+    return low;
+}
+
+int main() {
+    vector<int> arr = {1, 2, 2, 2, 3, 4, 5};
+    int target = 2;
+    int lb = lowerBound(arr, target);
+    int ub = upperBound(arr, target);
+    cout << "Lower bound of " << target << " is at index: " << lb << endl;
+    cout << "Upper bound of " << target << " is at index: " << ub << endl;
+    return 0;
+}
