@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> linearSearchMultiple(int arr[], int n, int key) {
+    vector<int> indices;
+    for (int i = 0; i < n; i++)
+        if (arr[i] == key)
+            indices.push_back(i);
+    return indices;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 2, 4, 2, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int key = 2;
+
+    vector<int> indices = linearSearchMultiple(arr, n, key);
+    if (!indices.empty()) {
+        cout << "Element found at indices: ";
+        for (int index : indices)
+            cout << index << " ";
+    } else {
+        cout << "Element not found";
+    }
+    return 0;
+}
