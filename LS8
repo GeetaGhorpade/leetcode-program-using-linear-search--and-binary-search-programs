@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    bool isSorted = true;
+    
+    // Compare adjacent elements
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] < arr[i - 1]) {
+            isSorted = false;
+            break;
+        }
+    }
+    
+    if (isSorted)
+        cout << "Array is sorted." << endl;
+    else
+        cout << "Array is not sorted." << endl;
+    
+    // Expected output: Array is sorted.
+    return 0;
+}
