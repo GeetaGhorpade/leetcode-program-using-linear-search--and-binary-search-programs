@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string haystack = "hello world";
+    string needle = "world";
+    int index = -1;
+    
+    // Outer loop: each possible starting index
+    for (int i = 0; i <= haystack.size() - needle.size(); i++) {
+        int j = 0;
+        // Check if the substring matches
+        while (j < needle.size() && haystack[i + j] == needle[j])
+            j++;
+        if (j == needle.size()) {
+            index = i;
+            break;
+        }
+    }
+    
+    cout << "Substring found at index: " << index << endl;
+    // Expected output: Substring found at index: 6
+    return 0;
+}
