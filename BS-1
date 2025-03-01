@@ -1,7 +1,5 @@
 
 
-1. Basic Binary Search in a Sorted ArraySearches for a target element in a sorted array.
-
 #include <iostream>
 #include <vector>
 using namespace std;
